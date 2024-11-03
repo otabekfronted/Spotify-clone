@@ -23,8 +23,8 @@ function RightBar() {
                 <img src="./rightBar.svg" alt="" />
             </div>
             <p className="mt-4">
-                Go to Settings > Social and enable “Share my listening activity
-                on Spotify.’ You can turn this off at any time.
+                Go to Settings Social and enable “Share my listening activity on
+                Spotify.’ You can turn this off at any time.
             </p>
             <button className="mt-2 w-[233px] h-[62px] rounded-[40px] bg-white text-[#171717] font-bold text-[18px]">
                 SETTINGS
