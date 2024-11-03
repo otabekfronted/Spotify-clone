@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @font-face {
+        font-family: "Circular Std";
+        src: url("/path/to/CircularStd.woff2") format("woff2"),
+            url("/path/to/CircularStd.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+    }
+}
