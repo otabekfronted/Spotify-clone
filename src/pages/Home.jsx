@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import http from "../axios";
 import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
     const [featured, setFeatured] = useState([]);
@@ -15,7 +16,11 @@ function Home() {
     const [recentlyShowAll, setRecentlyShowAll] = useState(false);
     const [jumpShow, setJumpShow] = useState(false);
     const [uniquelyShow, setUniquelyShow] = useState(false);
-
+    // const navi
+    const navigate = useNavigate();
+    const handlePlaylistClick = (id) => {
+        navigate(`/details/${id}`);
+    };
     useEffect(() => {
         http.get("featured-playlists")
             .then((response) => {
@@ -109,7 +114,10 @@ function Home() {
                 <div className="grid grid-cols-2 gap-7 mt-7">
                     {featured.length > 0 &&
                         featured.map((value, index) => (
-                            <div key={index}>
+                            <div
+                                key={index}
+                                onClick={() => handlePlaylistClick(value.id)}
+                            >
                                 <div className="flex items-center gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                     <img
                                         src={value.images[0]?.url}
@@ -140,7 +148,12 @@ function Home() {
                     {toplists.length > 0 &&
                         (showAll
                             ? toplists.map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}
@@ -157,7 +170,12 @@ function Home() {
                                   </div>
                               ))
                             : toplists.slice(0, 4).map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}
@@ -192,7 +210,12 @@ function Home() {
                     {yourlists.length > 0 &&
                         (yourShowAll
                             ? yourlists.map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}
@@ -209,7 +232,12 @@ function Home() {
                                   </div>
                               ))
                             : yourlists.slice(0, 4).map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}
@@ -243,7 +271,12 @@ function Home() {
                     {recently.length > 0 &&
                         (recentlyShowAll
                             ? recently.map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}
@@ -260,7 +293,12 @@ function Home() {
                                   </div>
                               ))
                             : recently.slice(0, 4).map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}
@@ -294,7 +332,12 @@ function Home() {
                     {jump.length > 0 &&
                         (jumpShow
                             ? jump.map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}
@@ -311,7 +354,12 @@ function Home() {
                                   </div>
                               ))
                             : jump.slice(0, 4).map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}
@@ -345,7 +393,12 @@ function Home() {
                     {uniquely.length > 0 &&
                         (uniquelyShow
                             ? uniquely.map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}
@@ -362,7 +415,12 @@ function Home() {
                                   </div>
                               ))
                             : uniquely.slice(0, 4).map((val, ind) => (
-                                  <div key={ind}>
+                                  <div
+                                      key={ind}
+                                      onClick={() =>
+                                          handlePlaylistClick(val.id)
+                                      }
+                                  >
                                       <div className="w-[224px] p-5 gap-5 bg-white bg-opacity-5 rounded-lg shadow-lg hover:bg-opacity-10 duration-200 cursor-pointer">
                                           <img
                                               src={val.images[0]?.url}

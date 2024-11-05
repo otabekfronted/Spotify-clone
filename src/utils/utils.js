@@ -1,7 +1,7 @@
 async function getToken() {}
 {
     try {
-        const response = fetch("https://accounts.spotify.com/api/token", {
+        const response = await fetch("https://accounts.spotify.com/api/token", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -13,7 +13,7 @@ async function getToken() {}
             },
             body: "grant_type=client_credentials",
         });
-        const auth = response.json();
+        const auth = await response.json();
         // console.log(17, auth);
 
         localStorage.setItem(
